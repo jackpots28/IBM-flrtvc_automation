@@ -7,22 +7,21 @@
 # make sure the dest dir's are correct for you system
 
 # Dependencies required to run: sshpass
-
 # Change these directories to what you want
 
-which sshpass;
+/usr/bin/which sshpass;
 if [[ $? -ne 0 ]]
 then    
-        echo "---           Dependency Error            ---";
-        echo "--- Is SSHPASS installed on your machined ---";
-        echo "---           Exitting Script             ---";
+        echo "---            Dependency Error            ---";
+        echo "--- Is SSHPASS installed on your machined? ---";
+        echo "---             Exiting Script             ---";
         exit 1;
 else
-        echo "---     Dependencies Resolved Correctly   ---";
+        echo "---     Dependencies Resolved Correctly    ---";
 fi
 
-remote_save_path="/home/simsjo-a/"
-local_save_path="/home/simsjo-a/move_me"
+remote_save_path="/home/<USERID>/"
+local_save_path="/home/<USERID>/<DIR>"
 
 host="$1";
 ping -c1 -W1 $host;
@@ -81,5 +80,6 @@ else
 fi
 
 echo "Script Complete.";
+echo "Upload results to https://esupport.ibm.com/customercare/flrt/vc"
 exit 0;
 
